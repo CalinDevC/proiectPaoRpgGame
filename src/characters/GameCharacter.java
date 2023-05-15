@@ -3,10 +3,34 @@ package characters;
 public class GameCharacter {
     private String name;
     protected int healthPoints;
+    private int id;
+    private int level;
 
-    public GameCharacter(String name, int healthPoints) {
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public GameCharacter(String name, int healthPoints, int id, int level) {
         this.name = name;
         this.healthPoints = healthPoints;
+        this.id = id;
+        this.level = level;
     }
 
     public String getName() {
@@ -29,8 +53,19 @@ public class GameCharacter {
         target.takeDamage(damage);
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("GameCharacter{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", healthPoints=").append(healthPoints);
+        sb.append(", id=").append(id);
+        sb.append(", level=").append(level);
+        sb.append('}');
+        return sb.toString();
+    }
+
     protected int calculateDamage() {
-        // Aici va trebui sa implementez logica de calcul al daunelor
+        // va trebui sa implementez logica de calcul al daunelor
         // in functie de caracteristicile personajului (mai e mult pana departe :)))
 
         return 20;
