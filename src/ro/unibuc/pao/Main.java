@@ -1,8 +1,12 @@
-import characters.Enemy;
-import characters.GameCharacter;
-import characters.YourPlayer;
-import items.Item;
-import services.GameService;
+package ro.unibuc.pao;
+
+import ro.unibuc.pao.characters.Enemy;
+import ro.unibuc.pao.characters.GameCharacter;
+import ro.unibuc.pao.characters.YourPlayer;
+import ro.unibuc.pao.items.Item;
+import ro.unibuc.pao.services.GameService;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,10 +27,15 @@ public class Main {
 
         // Alte apeluri catre servicii sau logica jocului
 
-        // Exemplu de actiuni/interogari posibile:
+        // Exemplu de actiuni:
         System.out.println("Lista de personaje:");
-        for (GameCharacter character : gameService.getCharacters()) {
-            System.out.println(character.getName());
+        List<GameCharacter> characters = gameService.getCharacters(); // Obține lista de personaje
+        if (!characters.isEmpty()) {
+            for (GameCharacter character : characters) {
+                System.out.println(character.getName());
+            }
+        } else {
+            System.out.println("Nu există personaje în listă.");
         }
 
         System.out.println("Lista de obiecte:");

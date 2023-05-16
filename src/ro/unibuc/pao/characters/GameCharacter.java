@@ -1,4 +1,4 @@
-package characters;
+package ro.unibuc.pao.characters;
 
 public class GameCharacter {
     private String name;
@@ -33,6 +33,9 @@ public class GameCharacter {
         this.level = level;
     }
 
+    public GameCharacter() {
+
+    }
     public String getName() {
         return name;
     }

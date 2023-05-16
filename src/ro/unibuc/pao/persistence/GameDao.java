@@ -1,4 +1,4 @@
-package persistence;
+package ro.unibuc.pao.persistence;
 
 import java.util.List;
 

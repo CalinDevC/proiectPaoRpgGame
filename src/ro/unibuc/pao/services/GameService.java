@@ -1,7 +1,7 @@
-package services;
+package ro.unibuc.pao.services;
 
-import characters.GameCharacter;
-import items.Item;
+import ro.unibuc.pao.characters.GameCharacter;
+import ro.unibuc.pao.items.Item;
 
 import java.util.ArrayList;
 import java.util.List;

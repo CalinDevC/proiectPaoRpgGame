@@ -1,7 +1,7 @@
-package services;
+package ro.unibuc.pao.services;
 
-import persistence.DBConnection;
-import persistence.GameDao;
+import ro.unibuc.pao.persistence.DBConnection;
+import ro.unibuc.pao.persistence.GameDao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

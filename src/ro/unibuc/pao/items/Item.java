@@ -1,4 +1,4 @@
-package items;
+package ro.unibuc.pao.items;
 
 public class Item implements UsableItem {
     private String name;

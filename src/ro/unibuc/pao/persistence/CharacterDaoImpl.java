@@ -1,6 +1,6 @@
-package persistence;
+package ro.unibuc.pao.persistence;
 
-import characters.GameCharacter;
+import ro.unibuc.pao.characters.GameCharacter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
