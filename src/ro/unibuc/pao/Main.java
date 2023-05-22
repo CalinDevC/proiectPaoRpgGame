@@ -4,19 +4,22 @@ import ro.unibuc.pao.characters.Enemy;
 import ro.unibuc.pao.characters.GameCharacter;
 import ro.unibuc.pao.characters.YourPlayer;
 import ro.unibuc.pao.items.Item;
+import ro.unibuc.pao.persistence.CharacterDaoImpl;
+import ro.unibuc.pao.persistence.DBConnection;
 import ro.unibuc.pao.services.GameService;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
         // Creaza conexiunea la baza de date
-       // Connection connection = DBConnection.getConnection();
+        Connection connection = DBConnection.getConnection();
         GameService gameService = new GameService();
 
         // Create an instance of CharacterDaoImpl
-       /* CharacterDaoImpl characterDao = new CharacterDaoImpl(connection);
+        CharacterDaoImpl characterDao = new CharacterDaoImpl(connection);
 
         // Call the read() method to retrieve a character's details
         int characterId = 1; // Example character ID
@@ -28,7 +31,12 @@ public class Main {
             System.out.println("Character Name: " + characterName);
         } else {
             System.out.println("Character not found.");
-        }*/
+        }
+
+        List<GameCharacter> gameCharacters = characterDao.readAll();
+        for (GameCharacter gameCharacter : gameCharacters) {
+            gameService.addCharacter(gameCharacter);
+        }
 
 
         // Exemplu de utilizare a serviciilor
@@ -48,10 +56,10 @@ public class Main {
 
         // Exemplu de actiuni:
         System.out.println("Lista de personaje:");
-        List<GameCharacter> characters = gameService.getCharacters(); // Obtine lista de personaje
-       if (!characters.isEmpty()) {
-            for (GameCharacter character : characters) {
-                System.out.println(character.getName()); // Afiseaza numele personajului
+       List<GameCharacter> gamecharacters = gameService.getCharacters(); // Obtine lista de personaje
+       if (!gamecharacters.isEmpty()) {
+            for (GameCharacter each : gamecharacters) {
+                System.out.println(each.getName()); // Afiseaza numele personajului
             }
         } else {
             System.out.println("Nu exista personaje in lista.");

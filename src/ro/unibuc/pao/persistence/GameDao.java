@@ -10,4 +10,5 @@ public interface GameDao<T> {
     List<T> readAll();
     void update(T object);
     void delete(int id);
+
 }

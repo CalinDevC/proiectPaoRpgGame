@@ -33,7 +33,7 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public GameCharacter read(int id) {
-        String query = "SELECT * FROM characters WHERE id = ?";
+        String query = "SELECT * FROM gamecharacter WHERE id = ?";
         GameCharacter character = null;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -56,10 +56,12 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public List<GameCharacter> readAll() {
-        String query = "SELECT * FROM characters";
-        List<GameCharacter> characters = new ArrayList<>();
+        String query = "SELECT * FROM gamecharacter";
+        List<GameCharacter>  characters = new ArrayList<>();
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
+
+
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -67,7 +69,6 @@ public class CharacterDaoImpl implements CharacterDao {
                 character.setId(resultSet.getInt("id"));
                 character.setName(resultSet.getString("name"));
                 character.setLevel(resultSet.getInt("level"));
-
                 characters.add(character);
             }
         } catch (SQLException e) {
