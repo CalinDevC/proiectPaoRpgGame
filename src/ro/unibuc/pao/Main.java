@@ -18,14 +18,14 @@ public class Main {
         Connection connection = DBConnection.getConnection();
         GameService gameService = new GameService();
 
-        // Create an instance of CharacterDaoImpl
+        // Creare instanta  CharacterDaoImpl
         CharacterDaoImpl characterDao = new CharacterDaoImpl(connection);
 
-        // Call the read() method to retrieve a character's details
+        // Call metoda read() ca sa imi afisesze dertaliile
         int characterId = 1; // Example character ID
         GameCharacter character = characterDao.read(characterId);
 
-        // Display the character's name
+        // Afisez numele charului
         if (character != null) {
             String characterName = character.getName();
             System.out.println("Character Name: " + characterName);
@@ -43,8 +43,8 @@ public class Main {
         YourPlayer yourPlayer = new YourPlayer("Player1", 100, 0); // Creeaza o instanta a YourPlayer
         Enemy enemy = new Enemy("Enemy1", 50, 10); // Creeaza o instanta a Enemy
 
-        //gameService.addCharacter(yourPlayer); // Adauga YourPlayer in GameService
-        //gameService.addCharacter(enemy); // Adauga Enemy in GameService
+        gameService.addCharacter(yourPlayer); // Adauga YourPlayer in GameService
+        gameService.addCharacter(enemy); // Adauga Enemy in GameService
 
         Item sword = new Item("Sword", 50); // Creeaza un obiect de tipul sword
         Item potion = new Item("Health Potion", 20); // Creeaza un obiect de tipul potion

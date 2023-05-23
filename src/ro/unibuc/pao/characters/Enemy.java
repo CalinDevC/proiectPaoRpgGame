@@ -19,7 +19,7 @@ public class Enemy extends GameCharacter {
         return attackPoints;
     }
 
-    // Metoda setter pentru ATTACPOINTS
+    // Metoda setter pentru ATTACKPOINTS
     public void setAttackPoints(int attackPoints) {
         this.attackPoints = attackPoints;
     }
