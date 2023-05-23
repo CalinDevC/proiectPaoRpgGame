@@ -11,10 +11,10 @@ public class Enemy extends GameCharacter {
     }
 
     // Constructorul clasei Enemy care primeste doar numele inamicului, hp-ul si id-ul
-    public Enemy(String enemy1, int healthPoints, int id) {
+    public Enemy(String name, int healthPoints, int id) {
     }
 
-    // Metoda getter pentru ATTACKPOINTS
+    // netoda getter pentru ATTACKPOINTS
     public int getAttackPoints() {
         return attackPoints;
     }

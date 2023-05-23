@@ -40,8 +40,10 @@ public class Main {
 
 
         // Exemplu de utilizare a serviciilor
-        YourPlayer yourPlayer = new YourPlayer("Player1", 100, 0); // Creeaza o instanta a YourPlayer
-        Enemy enemy = new Enemy("Enemy1", 50, 10); // Creeaza o instanta a Enemy
+
+        // instantiere de noi personaje
+        YourPlayer yourPlayer = new YourPlayer("Fat-Fricos", 100, 0, 6, 24); // Creeaza o instanta a YourPlayer
+        Enemy enemy = new Enemy("Gica-Contra", 50, 4); // Creeaza o instanta a Enemy
 
         gameService.addCharacter(yourPlayer); // Adauga YourPlayer in GameService
         gameService.addCharacter(enemy); // Adauga Enemy in GameService
@@ -55,6 +57,7 @@ public class Main {
         // Alte apeluri catre servicii sau logica jocului
 
         // Exemplu de actiuni:
+        // incarca lista de personaje din baza de date
         System.out.println("Lista de personaje:");
        List<GameCharacter> gamecharacters = gameService.getCharacters(); // Obtine lista de personaje
        if (!gamecharacters.isEmpty()) {
@@ -64,12 +67,14 @@ public class Main {
         } else {
             System.out.println("Nu exista personaje in lista.");
         }
-
+        // afiseaza obiectetele de tip Item instantiate (nu din DB)
         System.out.println("Lista de obiecte:");
         for (Item item : gameService.getItems()) {
             System.out.println(item.getName()); // Afiseaza numele obiectului
         }
 
-        yourPlayer.attack(enemy); // Ataca un inamic
+        yourPlayer.attack(enemy);
+        // personajul meu Ataca un inamic. (trebuie sa rezolv de ce il ia null)
+        //rezolvat - constructorul la yourPlayer era doar cu 3 parametri
     }
 }

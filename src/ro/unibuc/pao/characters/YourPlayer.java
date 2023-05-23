@@ -8,7 +8,7 @@ public class YourPlayer extends GameCharacter {
         this.experiencePoints = experiencePoints;
     }
 
-    public YourPlayer(String name, int healthPoints, int id) {
+    public YourPlayer(String name, int healthPoints, int id, int i) {
     }
 
     public int getExperiencePoints() {
