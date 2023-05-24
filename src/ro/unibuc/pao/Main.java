@@ -11,6 +11,7 @@ import ro.unibuc.pao.services.GameService;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -73,8 +74,34 @@ public class Main {
             System.out.println(item.getName()); // Afiseaza numele obiectului
         }
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Introduceti numele personajului dvs.:");
+        String playerName = scanner.nextLine();
+
+        System.out.println("Introduceti numele inamicului:");
+        String enemyName = scanner.nextLine();
+
+        //YourPlayer yourPlayer = null;
+        //Enemy enemy = null;
+
+       for (GameCharacter gameCharacter : gamecharacters) {
+            if (character instanceof YourPlayer && character.getName().equals(playerName)) {
+                yourPlayer = (YourPlayer) character;
+            } else if (character instanceof Enemy && character.getName().equals(enemyName)) {
+                enemy = (Enemy) character;
+            }
+        }
+        if (yourPlayer != null && enemy != null) {
+            yourPlayer.attack(enemy);
+        } else {
+            System.out.println("Personajul sau inamicul nu au fost gasiti.");
+        }
+
+
+
         yourPlayer.attack(enemy);
-        // personajul meu Ataca un inamic. (trebuie sa rezolv de ce il ia null)
+        // personajul meu Ataca un inamic. (trebuie sa rezolv de ce il ia null personajul si inamicul)
         //rezolvat - constructorul la yourPlayer era doar cu 3 parametri
     }
 }
